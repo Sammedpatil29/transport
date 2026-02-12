@@ -1,0 +1,9 @@
+.sidebar {
+    width: 10%;
+    height: calc(100vh - 100px);
+}
+
+.section {
+    display: flex;
+    gap: 5px;
+}
