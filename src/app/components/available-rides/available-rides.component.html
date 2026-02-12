@@ -1,11 +1,38 @@
-@if(availableRidesData.length !== 0){
+@if(filteredData.length !== 0){
     <div class="header">
         <h3>Explore Rides</h3>
-        <h3><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#434343"><path d="M440-160q-17 0-28.5-11.5T400-200v-240L168-736q-15-20-4.5-42t36.5-22h560q26 0 36.5 22t-4.5 42L560-440v240q0 17-11.5 28.5T520-160h-80Zm40-308 198-252H282l198 252Zm0 0Z"/></svg></h3>
+        <div>
+            <select name="cars" id="cars" [(ngModel)]="selectedFilter" (change)="filterData()">
+  <option value="all">All</option>
+  <option value="bike">Bike</option>
+  <option value="car">Car</option>
+</select>
+<button (click)="gotohost()">Host Ride</button>
+        </div>
     </div>
-    @for (item of availableRidesData; track $index) {
-        
+    <div class="container">
+        @for (item of filteredData; track $index) {
+        <div class="card">
+            <div class="card-header">
+                <small>#{{item.employeeId}}</small>
+                <small><small class="badge">{{item.vehicleType}}</small>{{item.vehicleNo}}</small>
+            </div>
+            <div class="card-body">
+                <div>Pickup: {{item.pickup}}</div>
+                <div>Destination: {{item.destination}}</div>
+            </div>
+            <div class="card-footer">
+                <div>🕑{{item.time | date: 'shortTime'}}<span>&nbsp;💺{{item.vacantSeats}}</span></div>
+                
+                @if(item.vacantSeats > 0){
+                    <button (click)="bookRide(item.id, item.employeeId)">Book</button>
+                } @else {
+                    <button class="disabled" [disabled]="item.vacantSeats <= 0">Closed</button>
+                }
+            </div>
+        </div>
     }
+    </div>
 } @else {
     <app-no-data></app-no-data>
 }
