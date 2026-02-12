@@ -1,9 +1,28 @@
 .sidebar {
-    width: 10%;
-    height: calc(100vh - 100px);
+    width: 15%;
 }
 
 .section {
     display: flex;
-    gap: 5px;
+    gap: 10px;
+}
+
+.header {
+    color: var(--theme-color);
+}
+
+.main-content {
+    width: 90%
+}
+
+.title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(163, 4, 4);
+    margin-right: 10px;
+}
+
+h3 {
+    cursor: pointer;
 }

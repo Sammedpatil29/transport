@@ -1,0 +1,29 @@
+li {
+    /* Layout & Spacing */
+    list-style: none; /* Removes default bullets */
+    margin-bottom: 12px;
+    padding: 20px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #333;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+li:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 0
+}
+
+.active {
+    background-color: var(--theme-color);
+    color: white;
+}

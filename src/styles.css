@@ -1,1 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --theme-color: #32ba94;
+    --theme-color-light:  #32ba9426
+}
