@@ -12,7 +12,7 @@ export const routes: Routes = [
         children: [
             {
                 path: '',
-                redirectTo: 'available-rides',
+                redirectTo: 'host-ride',
                 pathMatch: 'full'
             },
             {

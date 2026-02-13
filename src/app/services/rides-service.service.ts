@@ -9,8 +9,6 @@ export class RidesServiceService {
   availableRides$ = this.availableRides.asObservable();
   private myRides = new BehaviorSubject<any[]>([])
   myRides$ = this.myRides.asObservable();
-  private myBookings = new BehaviorSubject<any[]>([])
-  myBookings$ = this.myBookings.asObservable();
 
   constructor() { }
 
@@ -20,9 +18,5 @@ export class RidesServiceService {
 
   updateMyRides(rides: any[]) {
     this.myRides.next(rides);
-  }
-
-  updateMyBookings(rides: any[]) {
-    this.myBookings.next(rides);
   }
 }

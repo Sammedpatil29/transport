@@ -25,13 +25,20 @@ ngOnInit(): void {
 }
 
 onHostRide(formData: any) {
-    // 1. Generate a unique ID for the new service entry
+    if(this.availableRidesData.find(item => item.employeeId.toLowerCase() === formData.employeeId.toLowerCase())){
+      alert('You already have an active hosted ride');
+      return;
+    }
+
+    if (new Date(formData.time).getTime() < new Date().getTime()) {
+      alert('Please select a future time');
+      return;
+    }
+
     const newId = this.availableRidesData.length > 0 
       ? Math.max(...this.availableRidesData.map(r => r.id)) + 1 
       : 1;
 
-    // 2. Create the new ride object
-    // The 'time' from datetime-local is already in YYYY-MM-DDTHH:mm format
     const newRide = {
       id: newId,
       employeeId: formData.employeeId,
@@ -43,12 +50,10 @@ onHostRide(formData: any) {
       destination: formData.destination
     };
 
-    // 3. Add to the data array
     this.availableRidesData.push(newRide);
     console.log(this.availableRidesData)
     this.ridesService.updateAvailableRides(this.availableRidesData);
 
-    // 4. Provide feedback to the volunteer
     alert(`Successfully hosted a ${newRide.vehicleType} ride to ${newRide.destination}!`);
     
     this.router.navigate(['/layout/available-rides']);
@@ -57,10 +62,8 @@ onHostRide(formData: any) {
   setMinDateTime() {
   const now = new Date();
   
-  // Format: 2026-02-13T09:45
   this.minDateTime = this.formatDateTime(now);
 
-  // Set Max to 23:59 of today to keep it "Today Only"
   const endOfToday = new Date();
   endOfToday.setHours(23, 59, 0, 0); 
   this.maxDateTime = this.formatDateTime(endOfToday);
