@@ -1,5 +1,4 @@
-@if(filteredData.length !== 0){
-    <div class="header">
+<div class="header">
         <h3>Explore Rides</h3>
         <div>
             <select name="cars" id="cars" [(ngModel)]="selectedFilter" (change)="filterData()">
@@ -10,6 +9,7 @@
 <button (click)="gotohost()">Host Ride</button>
         </div>
     </div>
+@if(filteredData.length !== 0){
     <div class="container">
         @for (item of filteredData; track $index) {
         <div class="card">

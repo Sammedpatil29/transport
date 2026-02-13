@@ -16,16 +16,8 @@ export const routes: Routes = [
                 pathMatch: 'full'
             },
             {
-                path: 'home',
-                loadComponent: () => import('./components/home/home.component').then(m => m.HomeComponent)
-            },
-            {
                 path: 'my-rides',
                 loadComponent: () => import('./components/my-rides/my-rides.component').then(m => m.MyRidesComponent)
-            },
-            {
-                path: 'my-bookings',
-                loadComponent: () => import('./components/my-bookings/my-bookings.component').then(m => m.MyBookingsComponent)  
             },
             {
                 path: 'available-rides',

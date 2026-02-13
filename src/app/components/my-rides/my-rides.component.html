@@ -1,5 +1,66 @@
-@if(ridesData.length !== 0){
+<div class="form-container">
+  <div class="form-header">
+    <h3>Host a New Ride</h3>
+    <p>Host a ride to find a co-rider</p>
+  </div>
 
-} @else {
-    <app-no-data></app-no-data>
-}
+  <form  (ngSubmit)="rideForm.valid && onHostRide(rideForm.value)" #rideForm="ngForm">
+    <div class="input-grid">
+      <div class="form-group">
+        <label>Employee ID</label>
+        <input type="text" name="employeeId" ngModel placeholder="e.g. EMP101" required>
+      </div>
+
+      <div class="form-group">
+        <label>Vehicle Type</label>
+        <select name="vehicleType" ngModel required>
+          <option value="Car">Car</option>
+          <option value="Bike">Bike</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Vehicle Number</label>
+        <input type="text" name="vehicleNo" ngModel placeholder="e.g. KA01AB1234" required>
+      </div>
+
+      <div class="form-group">
+        <label>Available Seats</label>
+        @if(rideForm.value.vehicleType === 'Car'){
+            <input type="number" name="vacantSeats" ngModel min="1" max="4" required>
+        } @else {
+            <input type="number" name="vacantSeats" ngModel min="1" max="1" required>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Pickup Point</label>
+        <input type="text" name="pickup" ngModel placeholder="e.g. Electronic City" required>
+      </div>
+
+      <div class="form-group">
+        <label>Destination</label>
+        <input type="text" name="destination" ngModel placeholder="e.g. Whitefield" required>
+      </div>
+
+      <div class="form-group full-width">
+  <label>Schedule Date & Time</label>
+  <input type="datetime-local" 
+         name="time" 
+         #timeInput="ngModel"
+         ngModel 
+         [min]="minDateTime"
+         [max]="maxDateTime"
+         [required]="true"
+         onkeydown="return false"
+         (focus)="setMinDateTime()"
+         (click)="setMinDateTime()" 
+         required>
+</div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-submit">Host Ride</button>
+    </div>
+  </form>
+</div>
