@@ -3,6 +3,10 @@
     --theme-color-light:  #32ba9426
 }
 
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 

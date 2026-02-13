@@ -5,12 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-my-rides',
+  selector: 'app-host-ride',
   imports: [NoDataComponent, FormsModule],
-  templateUrl: './my-rides.component.html',
-  styleUrl: './my-rides.component.css'
+  templateUrl: './host-ride.component.html',
+  styleUrl: './host-ride.component.css'
 })
-export class MyRidesComponent implements OnInit{
+export class HostRideComponent implements OnInit{
 availableRidesData: any[] = []
 minDateTime: string = '';
 maxDateTime: string = '';

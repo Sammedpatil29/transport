@@ -16,8 +16,8 @@ export const routes: Routes = [
                 pathMatch: 'full'
             },
             {
-                path: 'my-rides',
-                loadComponent: () => import('./components/my-rides/my-rides.component').then(m => m.MyRidesComponent)
+                path: 'host-ride',
+                loadComponent: () => import('./components/host-ride/host-ride.component').then(m => m.HostRideComponent)
             },
             {
                 path: 'available-rides',

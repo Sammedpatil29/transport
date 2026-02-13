@@ -5,7 +5,7 @@ li {
     border-radius: 8px;
     cursor: pointer;
     color: #333;
-    font-weight: 500;
+    font-weight: bold;
     text-decoration: none;
     background-color: #ffffff;
     border: 1px solid #eee;
@@ -25,4 +25,5 @@ ul {
 .active {
     background-color: var(--theme-color);
     color: white;
+    font-weight: bold;
 }

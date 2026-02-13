@@ -70,12 +70,3 @@ h3 {
   font-weight: bold;
   cursor: pointer;
 }
-
-.btn-cancel {
-  background: #f1f1f1;
-  color: #555;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 8px;
-  cursor: pointer;
-}

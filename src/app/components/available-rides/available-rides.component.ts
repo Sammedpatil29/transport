@@ -50,7 +50,7 @@ filterData() {
 }
 
 gotohost(){
-  this.router.navigate(['/layout/my-rides']);
+  this.router.navigate(['/layout/host-ride']);
 }
 
 bookRide(id:number, employeeId:string) {
