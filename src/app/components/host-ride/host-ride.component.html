@@ -27,12 +27,12 @@
 
       <div class="form-group">
         <label>Vehicle Number</label>
-        <input type="text" name="vehicleNo" ngModel placeholder="e.g. KA01AB1234" required pattern="[a-zA-Z0-9]+" #vehicleNo="ngModel">
+        <input type="text" name="vehicleNo" ngModel placeholder="e.g. KA01AB1234" required pattern="^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$" #vehicleNo="ngModel">
         @if(vehicleNo.invalid && (vehicleNo.dirty || vehicleNo.touched)){
           @if(vehicleNo.errors?.['required']){
             <small style="color: red;">Vehicle Number is required</small>
           } @else if(vehicleNo.errors?.['pattern']){
-            <small style="color: red;">Vehicle Number must be alphanumeric</small>
+            <small style="color: red;">Vehicle Number must be alphanumeric and contain both letters and numbers</small>
           }
         }
       </div>

@@ -59,7 +59,7 @@ bookRide(id:number, employeeId:string) {
     return;
   }
   if (empIdInput?.toLocaleLowerCase() == employeeId.toLocaleLowerCase()) {
-    alert('you are not alowed to book a ride since you are the owner of this ride')
+    alert('You are not allowed to book a ride since you are the owner of this ride')
     return
   }
   
