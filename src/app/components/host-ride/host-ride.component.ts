@@ -3,10 +3,11 @@ import { NoDataComponent } from "../no-data/no-data.component";
 import { RidesServiceService } from '../../services/rides-service.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-host-ride',
-  imports: [NoDataComponent, FormsModule],
+  imports: [NoDataComponent, FormsModule, CommonModule],
   templateUrl: './host-ride.component.html',
   styleUrl: './host-ride.component.css'
 })
@@ -14,6 +15,8 @@ export class HostRideComponent implements OnInit{
 availableRidesData: any[] = []
 minDateTime: string = '';
 maxDateTime: string = '';
+vehicleType:any = ['Car', 'Bike']
+
 
 constructor(private ridesService: RidesServiceService, private router: Router){}
 

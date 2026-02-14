@@ -2,9 +2,9 @@
         <h3>Explore Rides</h3>
         <div>
             <select name="cars" id="cars" [(ngModel)]="selectedFilter" (change)="filterData()">
-  <option value="all">All</option>
-  <option value="bike">Bike</option>
-  <option value="car">Car</option>
+  @for (item of vehicleType; track $index) {
+    <option [value]="item">{{item | titlecase}}</option>
+  }
 </select>
 <button (click)="gotohost()">Host Ride</button>
         </div>

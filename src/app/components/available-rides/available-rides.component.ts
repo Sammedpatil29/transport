@@ -19,6 +19,7 @@ export class AvailableRidesComponent implements OnInit{
 availableRidesData: any[] = []
 
 bookedRides: any[] = [];
+vehicleType = ['all', 'Car', 'Bike']
 
 
 constructor(private router: Router, private ridesService: RidesServiceService) {}
